@@ -1,0 +1,19 @@
+.menu{
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  padding: 40px;
+  width: 100%;
+  gap: 20px;
+  top: 9%;
+  left: -.1%;
+  background-color: rgb(91, 133, 250);
+  transition: 2s ease;
+}
+
+.menu a{
+  font-size: larger;
+  text-align: center;
+  margin: 0;
+  
+}
