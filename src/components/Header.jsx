@@ -12,29 +12,29 @@ const toggleMenu = () =>{
 
 
 return (
-    <nav className="bg-blue-500 text-white">
+    <nav className="bg-black text-white">
     <div className="container mx-auto flex justify-between items-center p-4">
       <div className="text-2xl font-bold">
-        <a href="#" className="hover:text-blue-300">
+        <a href="#" className="">
           Compra Fácil
         </a>
       </div>
 
       <div id="menu" className="md:flex space-x-6 hidden">
-        <a href="#" className="hover:text-blue-300">
-          Ropa de Hombre
+        <a href="#" className="hover:underline underline-offset-4">
+          ROPA DE HOMBRE
         </a>
-        <a href="#" className="hover:text-blue-300">
-          Ropa de Mujer
+        <a href="#" className="hover:underline underline-offset-4">
+          ROPA DE MUJER
         </a>
-        <a href="#" className="hover:text-blue-300">
-          Tecnología
+        <a href="#" className="hover:underline underline-offset-4">
+          TECNOLOGIA
         </a>
-        <a href="#" className="hover:text-blue-300">
-          Joyeria
+        <a href="#" className="hover:underline underline-offset-4">
+          JOYERIA
         </a>
-        <a href="#" className="hover:text-blue-300 md:hidden">
-          Carrito
+        <a href="#" className="hover:underline underline-offset-4 md:hidden">
+          CARRITO
         </a>
       </div>
 
@@ -45,7 +45,7 @@ return (
       </div>
       <div className="md:hidden">
         <a href="#" className="hover:text-blue-300" onClick={toggleMenu}>
-            <i class="fa-solid fa-bars text-xl" ></i>
+            <i className="fa-solid fa-bars text-xl" ></i>
         </a>
       </div>
 

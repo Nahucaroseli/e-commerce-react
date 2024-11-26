@@ -1,12 +1,13 @@
-import { useState } from 'react'
 import './App.css'
-import Header from './components/Header'
+import { Routes, Route } from 'react-router'
+import Home from './pages/Home'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <Header></Header>
+    <Routes>
+      <Route path='' element={<Home></Home>}/>
+    </Routes>
     
   )
 }
