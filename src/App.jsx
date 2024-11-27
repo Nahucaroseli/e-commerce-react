@@ -6,7 +6,8 @@ function App() {
 
   return (
     <Routes>
-      <Route path='' element={<Home></Home>}/>
+      <Route path='/' element={<Home></Home>}/>
+      <Route  path='/:filter' element={<Home></Home>}/>
     </Routes>
     
   )

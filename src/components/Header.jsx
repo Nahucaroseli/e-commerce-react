@@ -1,9 +1,11 @@
 import React from 'react'
+import { Link } from 'react-router';
 
 function Header() {
 
 
 
+let filter = ``;
 
 const toggleMenu = () =>{
     let menu = document.querySelector("#menu");
@@ -12,7 +14,7 @@ const toggleMenu = () =>{
 
 
 return (
-    <nav className="bg-black text-white">
+    <nav className="bg-black text-white fixed w-full z-10">
     <div className="container mx-auto flex justify-between items-center p-4">
       <div className="text-2xl font-bold">
         <a href="#" className="">
@@ -20,20 +22,25 @@ return (
         </a>
       </div>
 
-      <div id="menu" className="md:flex space-x-6 hidden">
-        <a href="#" className="hover:underline underline-offset-4">
-          ROPA DE HOMBRE
-        </a>
-        <a href="#" className="hover:underline underline-offset-4">
-          ROPA DE MUJER
-        </a>
-        <a href="#" className="hover:underline underline-offset-4">
-          TECNOLOGIA
-        </a>
-        <a href="#" className="hover:underline underline-offset-4">
-          JOYERIA
-        </a>
-        <a href="#" className="hover:underline underline-offset-4 md:hidden">
+      <div id="menu" className="md:flex space-x-6 hidden z-10">
+        <Link onClick={filter=`men's clothing`} to={`/${filter}`} className='hover:underline underline-offset-4'>
+        
+              ROPA DE HOMBRE
+        </Link>
+        <Link  onClick={filter=`women's clothing`} to={`/${filter}`} className='hover:underline underline-offset-4'>
+
+              ROPA DE MUJER
+          
+        </Link>
+        <Link onClick={filter=`electronics`} to={`/${filter}`} className='hover:underline underline-offset-4'>
+    
+              TECNOLOGIA
+      
+        </Link>
+        <Link onClick={filter=`jewelery`} to={`/${filter}`}  className='hover:underline underline-offset-4'>
+              JOYERIA
+        </Link>
+        <a href="#" className="hover:underline underline-offset-4 md:hidden" >
           CARRITO
         </a>
       </div>

@@ -1,10 +1,11 @@
-import React from 'react'
+const URL = 'https://fakestoreapi.com/products/category/';
 
-const URL = 'https://fakestoreapi.com/products';
+let base = `men's clothing`
 
-export default async function getProducts() {
+export default async function getProducts(filter) {
+    base = filter
     try{
-        const response = await fetch(URL);
+        const response = await fetch(URL+base);
         const data = await response.json();
         console.log(data)
         return data;
