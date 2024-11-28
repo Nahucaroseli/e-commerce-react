@@ -22,3 +22,7 @@
   flex: 1;
   height: 100%;
 }
+
+#product_img{
+  width: 150%;
+}

@@ -14,12 +14,12 @@ const toggleMenu = () =>{
 
 
 return (
-    <nav className="bg-black text-white fixed w-full z-10">
+    <nav className="bg-black text-white fixed w-full z-10 border-b-0">
     <div className="container mx-auto flex justify-between items-center p-4">
       <div className="text-2xl font-bold">
-        <a href="#" className="">
+        <Link onClick={filter = ` `} to={`/`}>
           Compra Fácil
-        </a>
+        </Link>
       </div>
 
       <div id="menu" className="md:flex space-x-6 hidden z-10">
