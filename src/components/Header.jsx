@@ -40,19 +40,14 @@ return (
         <Link onClick={filter=`jewelery`} to={`/${filter}`}  className='hover:underline underline-offset-4'>
               JOYERIA
         </Link>
-        <a href="#" className="hover:underline underline-offset-4 md:hidden" >
-          CARRITO
-        </a>
       </div>
 
-      <div>
-        <a href="#" className="md:block hidden hover:text-blue-300">
+      <div className='flex flex-row justify-around w-20'>
+        <a href="#" className="hover:text-blue-300">
           <i className="fas fa-shopping-cart text-xl"></i>
         </a>
-      </div>
-      <div className="md:hidden">
-        <a href="#" className="hover:text-blue-300" onClick={toggleMenu}>
-            <i className="fa-solid fa-bars text-xl" ></i>
+        <a href="#" className="hover:text-blue-300 md:hidden" onClick={toggleMenu}>
+            <i className="fa-sharp fa-solid fa-bars text-2xl"></i>
         </a>
       </div>
 
