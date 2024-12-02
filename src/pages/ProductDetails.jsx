@@ -2,6 +2,7 @@ import React from 'react'
 import Header from '../components/Header'
 import useProduct from '../hooks/useProduct'
 import { useParams } from 'react-router';
+import Cart from '../components/Cart';
 
 function ProductDetails() {
 
@@ -13,6 +14,7 @@ function ProductDetails() {
 
   return (
     <>
+    <Cart></Cart>
     <Header/>
     {product && 
         <div className='container'>

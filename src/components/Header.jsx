@@ -9,7 +9,12 @@ let filter = ``;
 
 const toggleMenu = () =>{
     let menu = document.querySelector("#menu");
-    menu.classList.toggle("menu");
+    menu.classList.toggle("active");
+}
+
+const toggleCart = () =>{
+  let cart = document.querySelector("#cart");
+  cart.classList.toggle("activeCart");
 }
 
 
@@ -22,7 +27,7 @@ return (
         </Link>
       </div>
 
-      <div id="menu" className="md:flex space-x-6 hidden z-10">
+      <div id="menu" className="menu">
         <Link onClick={filter=`men's clothing`} to={`/${filter}`} className='hover:underline underline-offset-4'>
         
               ROPA DE HOMBRE
@@ -43,10 +48,10 @@ return (
       </div>
 
       <div className='flex flex-row justify-around w-20'>
-        <a href="#" className="hover:text-blue-300">
+        <a id="cart_button"className="hover:text-blue-300 hover:cursor-pointer" onClick={toggleCart}>
           <i className="fas fa-shopping-cart text-xl"></i>
         </a>
-        <a href="#" className="hover:text-blue-300 md:hidden" onClick={toggleMenu}>
+        <a className="hover:text-blue-300 md:hidden hover:cursor-pointer" onClick={toggleMenu}>
             <i className="fa-sharp fa-solid fa-bars text-2xl"></i>
         </a>
       </div>
