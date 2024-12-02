@@ -4,7 +4,7 @@ const URL = 'https://fakestoreapi.com/products';
 
 export const getProducts = async () => {
     try{
-        const response = await fetch('https://fakestoreapi.com/products');
+        const response = await fetch(URL);
         const data = await response.json();
         return data;
     }
@@ -23,6 +23,20 @@ export const getProductsByCategory = async (filter) => {
         return data;
     }
     catch{
+        console.log("404 Error");
+        
+    }
+}
+
+
+export const getProductById = async(id) =>{
+    console.log("HOLAAA")
+    try{
+        const response = await fetch(URL+"/"+id);
+        const data = await response.json();
+        console.log(data);
+        return data;
+    }catch{
         console.log("404 Error");
         
     }

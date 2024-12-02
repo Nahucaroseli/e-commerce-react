@@ -18,7 +18,7 @@ function Home() {
     
     const HTMLproducts = products.map( (product)=>{
         return (
-            <ProductCard key={product.id} product={product}/>
+            <ProductCard key={product.id} product={product} id={product.id}/>
         )
     })
 
