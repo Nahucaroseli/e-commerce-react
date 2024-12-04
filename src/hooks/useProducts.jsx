@@ -16,14 +16,20 @@ function useProducts(filter) {
                     data= await getProductsByCategory(filter);    
                 }
            
-                setProducts(data);
+                const productsWithQuantity = data.map((product)=>({
+                    ...product,
+                    quantity: 0
+                }))
+
+                setProducts(productsWithQuantity);
+
             } catch (error) {
                 console.error('Error fetching products:', error);
             }
         };
 
         fetchProducts();
-    }, [filter]);
+    },[filter]);
 
 
     return products;

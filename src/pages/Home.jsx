@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Header from '../components/Header'
 import ProductCard from '../components/ProductCard';
-import { useParams } from 'react-router';
+import { useLocation, useParams } from 'react-router';
 
 import Hero from '../components/Hero';
 import useProducts from '../hooks/useProducts';
@@ -15,7 +15,7 @@ function Home() {
     const products = useProducts(filter);
 
 
-    console.log(products);
+
     
     const HTMLproducts = products.map( (product)=>{
         return (

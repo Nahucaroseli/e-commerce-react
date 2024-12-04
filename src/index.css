@@ -16,11 +16,8 @@
 
 .cart{
   color:white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   position: fixed;
-  height: 42.923rem;
+  height: 43rem;
   padding: 40px;
   width: 100%;
   gap: 60px;
@@ -48,6 +45,10 @@
 
 #product_img{
   width: 80%;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Oculta la barra de scroll en navegadores WebKit */
 }
 
 @media (min-width: 768px) {

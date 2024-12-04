@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Header from '../components/Header'
 import useProduct from '../hooks/useProduct'
 import { useParams } from 'react-router';
 import Cart from '../components/Cart';
+import { CartContext, CartContextWrapper } from '/src/context/cart.context.jsx';
 
 function ProductDetails() {
 
@@ -11,6 +12,13 @@ function ProductDetails() {
 
   const product = useProduct(id);
 
+  const {addToCart} = useContext(CartContext);
+
+
+  const handleClick = ()=>{
+  
+    addToCart(product);
+  }
 
   return (
     <>
@@ -24,9 +32,8 @@ function ProductDetails() {
                 <h1 className='font-sans text-xl'>{product.title}</h1>
                 <h1 className='font-bold text-xl'>${product.price}</h1>
                 <h2>{product.description}</h2>
-                <button className=' mt-10 border-2 border-black p-2 rounded-lg w-60 text-white bg-black hover:bg-white hover:text-black ease-out duration-300 '>Agregar al Carrito</button>
+                <button onClick={handleClick} className=' mt-10 border-2 border-black p-2 rounded-lg w-60 text-white bg-black hover:bg-white hover:text-black ease-out duration-300 '>Agregar al Carrito</button>
             </div>
-
         </div>
     </div>
     }

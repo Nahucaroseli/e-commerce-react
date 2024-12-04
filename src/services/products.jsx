@@ -30,11 +30,9 @@ export const getProductsByCategory = async (filter) => {
 
 
 export const getProductById = async(id) =>{
-    console.log("HOLAAA")
     try{
         const response = await fetch(URL+"/"+id);
         const data = await response.json();
-        console.log(data);
         return data;
     }catch{
         console.log("404 Error");
