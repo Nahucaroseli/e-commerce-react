@@ -14,7 +14,10 @@ function Home() {
 
     const products = useProducts(filter);
 
-
+    const handleClick = ()=>{
+      const cart = document.querySelector("#cart");
+      cart.classList.remove("activeCart");
+    }
 
     
     const HTMLproducts = products.map( (product)=>{
@@ -28,7 +31,7 @@ function Home() {
     <Header />
     <Hero/>
     <Cart></Cart>
-    <div id="container" className='container flex flex-col gap-y-10 md:ml-20 md:flex-row md:flex-wrap justify-between w-auto mt-20 gap-y-10 mb-20'>
+    <div id="container" onClick={handleClick} className='container flex flex-col gap-y-10 md:ml-20 md:flex-row md:flex-wrap justify-between w-auto mt-20 gap-y-10 mb-20'>
         {HTMLproducts}
     </div>
 

@@ -9,7 +9,6 @@ function Header() {
 
 // Estados para controlar el estado del menú y del carrito
 const [isMenuActive, setIsMenuActive] = useState(false);
-const {totalItems} = useContext(CartContext);
 let [filter, setFilter] = useState("");
 const location = useLocation();
 
@@ -74,19 +73,18 @@ return (
           JOYERIA
         </Link>
       </div>
-
-      <div className="flex flex-row justify-around w-20">
+      <div className="flex flex-row justify-between md:justify-around md:gap-x-5 w-20">
         <a
           id="cart_button"
           className="hover:text-blue-300 hover:cursor-pointer"
           onClick={toggleCart}
         >
-          <p>{totalItems}</p>
           <i className="fas fa-shopping-cart text-xl"></i>
         </a>
-        <a className='hover:text-blue-300 hover:cursor-pointer'>
-        <i class="fa-solid fa-user text-xl"></i>
-        </a>
+
+        <Link to={"/login"} className='hover:text-blue-300 hover:cursor-pointer'>
+        <i className="fa-solid fa-user text-xl"></i>
+        </Link>
         <a
           className="hover:text-blue-300 md:hidden hover:cursor-pointer"
           onClick={toggleMenu}

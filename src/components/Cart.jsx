@@ -43,11 +43,15 @@ function Cart() {
   }
 
   return (
-    <div id="cart" className="cart container flex flex-col items-start justify-start">
+    <div id="cart" className="cart container flex flex-col items-start md:w-80 justify-start">
       <h1 className="absolute top-6 text-xl">CARRITO</h1>
-      <i onClick={toggleCart} className="fa-solid fa-xmark absolute text-xl top-6 right-10 hover:cursor-pointer"></i>
+      <i onClick={toggleCart} className="fa-solid fa-xmark absolute text-xl top-6 right-10 md:top-6 md:right-50 hover:cursor-pointer"></i>
       <div className="flex flex-col h-3/4 overflow-y-auto scrollbar-hide gap-y-10 mt-10">
-        {HTMLproducts}
+        {products && 
+        HTMLproducts}
+        {products.length == 0 &&
+        <h1>Vacio</h1>}
+
       </div>
       <div className="absolute bottom-10 md:bottom-2">
         <h1 className="text-xl">Total: $ {total}</h1>

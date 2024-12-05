@@ -8,6 +8,7 @@ function CartContextWrapper(props) {
 
     const [products,setProducts] = useState([]);
     const [total, setTotal] = useState(0);
+    
 
 
     const addToCart = (newProduct) =>{
