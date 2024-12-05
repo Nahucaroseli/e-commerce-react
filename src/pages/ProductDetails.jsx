@@ -4,6 +4,7 @@ import useProduct from '../hooks/useProduct'
 import { useParams } from 'react-router';
 import Cart from '../components/Cart';
 import { CartContext, CartContextWrapper } from '/src/context/cart.context.jsx';
+import toast from 'react-hot-toast'
 
 function ProductDetails() {
 
@@ -14,14 +15,17 @@ function ProductDetails() {
 
   const {addToCart} = useContext(CartContext);
 
-
   const handleClick = ()=>{
-  
-    addToCart(product);
+    addToCart(product,);
+    toast('Agregado al Carrito!',{
+      duration: 2000,
+      position: 'top-right'
+    })
   }
 
   return (
     <>
+ 
     <Cart></Cart>
     <Header/>
     {product && 

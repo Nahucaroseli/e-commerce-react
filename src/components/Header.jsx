@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router';
 import Cart from './Cart';
+import { CartContext } from '../context/cart.context';
 
 function Header() {
 
@@ -8,6 +9,7 @@ function Header() {
 
 // Estados para controlar el estado del menú y del carrito
 const [isMenuActive, setIsMenuActive] = useState(false);
+const {totalItems} = useContext(CartContext);
 let [filter, setFilter] = useState("");
 const location = useLocation();
 
@@ -79,7 +81,11 @@ return (
           className="hover:text-blue-300 hover:cursor-pointer"
           onClick={toggleCart}
         >
+          <p>{totalItems}</p>
           <i className="fas fa-shopping-cart text-xl"></i>
+        </a>
+        <a className='hover:text-blue-300 hover:cursor-pointer'>
+        <i class="fa-solid fa-user text-xl"></i>
         </a>
         <a
           className="hover:text-blue-300 md:hidden hover:cursor-pointer"

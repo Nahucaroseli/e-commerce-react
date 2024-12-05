@@ -23,9 +23,21 @@ function CartContextWrapper(props) {
         })
 
     }
-    console.log(products);
+
+    const removeProduct = (productRemove) =>{
+        const product = products.find(product => product.id === productRemove.id);
+        if(product.quantity > 1){
+            setProducts(products.map(product=> product.id === productRemove.id ? {...product,quantity:product.quantity-1}:product));
+        }else if(product.quantity === 1){
+           setProducts(products.filter((item)=>{
+            return item !== product;
+           }));
+        }
+
+        setTotal((prevTotal) => Math.max(0, prevTotal - product.price));
+    }
   return (
-        <CartContext.Provider value={{products,addToCart,total}}>
+        <CartContext.Provider value={{products,addToCart,total,removeProduct}}>
             {props.children}
         </CartContext.Provider>
   )

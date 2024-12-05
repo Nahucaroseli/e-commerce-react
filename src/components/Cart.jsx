@@ -3,8 +3,19 @@ import { CartContext, } from '/src/context/cart.context.jsx';
 
 function Cart() {
 
-  const {products,total} = useContext(CartContext);
+  const {products,total,addToCart,removeProduct} = useContext(CartContext);
   const [HTMLproducts, setHTMLproducts] = useState([]);
+
+
+
+  const handleClickAdd = (e,product)=>{
+    e.preventDefault();
+    addToCart(product);
+  }
+  const handleClickRemove = (e,product)=>{
+    e.preventDefault();
+    removeProduct(product);
+  }
 
   useEffect(() => {
     const generatedHTML = products.map((product) => {
@@ -13,8 +24,10 @@ function Cart() {
           <img className="w-40" src={product.image} alt="" />
           <div className="flex flex-col ml-5 gap-y-4">
             <h1>{product.title}</h1>
-            <h1>${product.price}</h1>
+            <h1 className='font-bold'>${product.price}</h1>
             <h1>Cant: {product.quantity}</h1>
+            <button onClick={(e) =>handleClickAdd(e,product)} className='rounded-lg w-10 text-black bg-white hover:bg-gray-200 duration-300 hover:text-xl'>+</button>
+            <button onClick={(e) =>handleClickRemove(e,product)} className='rounded-lg w-10 text-black bg-white hover:bg-gray-200 duration-300 hover:text-xl'>-</button>
           </div>
         </div>
       );
@@ -24,10 +37,15 @@ function Cart() {
   }, [products]);
 
 
+  const toggleCart = () =>{
+    const cart = document.querySelector("#cart");
+    cart.classList.remove("activeCart");
+  }
+
   return (
     <div id="cart" className="cart container flex flex-col items-start justify-start">
       <h1 className="absolute top-6 text-xl">CARRITO</h1>
-      <i className="fa-solid fa-xmark absolute text-xl top-6 right-10"></i>
+      <i onClick={toggleCart} className="fa-solid fa-xmark absolute text-xl top-6 right-10 hover:cursor-pointer"></i>
       <div className="flex flex-col h-3/4 overflow-y-auto scrollbar-hide gap-y-10 mt-10">
         {HTMLproducts}
       </div>
