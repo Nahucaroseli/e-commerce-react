@@ -10,6 +10,7 @@ function CartContextWrapper(props) {
     const [total, setTotal] = useState(0);
     
 
+    
 
     const addToCart = (newProduct) =>{
         const existingProduct = products.find(product => product.id === newProduct.id);
