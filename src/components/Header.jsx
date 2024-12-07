@@ -7,12 +7,15 @@ function Header() {
 
 
 
-// Estados para controlar el estado del menú y del carrito
+
 const [isMenuActive, setIsMenuActive] = useState(false);
 let [filter, setFilter] = useState("");
 const location = useLocation();
+const {products} = useContext(CartContext);
+const [totalitemsCount,setTotalItemsCount] = useState("");
 
-// Funciones para alternar los menús
+
+
 const toggleMenu = () => {
   setIsMenuActive(!isMenuActive);
 };
@@ -22,13 +25,25 @@ const toggleCart = () => {
   cart.classList.toggle("activeCart")
 };
 
-// Función para actualizar el filtro y navegar
+
+useEffect(() =>{
+    const generatedHTML = () =>{
+      return(
+        <div className=' -ml-2 -mt-3 bg-white text-black h-5 rounded-2xl w-5'>
+          <p className='-mt-1 ml-1.5 font-bold'>{products.length}</p>
+        </div>
+      )
+    }
+    
+    setTotalItemsCount(generatedHTML);
+ 
+},[products]);
 
 useEffect(() => {
-  const path = location.pathname; // Obtén el path actual
-  const category = path.split('/')[1]; // Suponiendo que la categoría está en la ruta
+  const path = location.pathname; 
+  const category = path.split('/')[1]; 
   if (category) {
-    setFilter(category);  // Actualiza el filtro según la ruta
+    setFilter(category); 
   }
 }, [location]);
 
@@ -74,13 +89,17 @@ return (
         </Link>
       </div>
       <div className="flex flex-row justify-between md:justify-around md:gap-x-5 w-20">
+        <div className='flex flex-row'>
         <a
           id="cart_button"
           className="hover:text-blue-300 hover:cursor-pointer"
-          onClick={toggleCart}
-        >
+          onClick={toggleCart}>
+
           <i className="fas fa-shopping-cart text-xl"></i>
+
         </a>
+          {totalitemsCount}
+        </div>
 
         <Link to={"/login"} className='hover:text-blue-300 hover:cursor-pointer'>
         <i className="fa-solid fa-user text-xl"></i>

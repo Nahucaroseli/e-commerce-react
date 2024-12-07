@@ -10,7 +10,7 @@
   top: 7%;
   left: -.1%;
   background-color: black;
-  transform: translateY(-900px); /* Para transición */
+  transform: translateY(-900px); 
   transition: .5s;
 }
 
@@ -48,7 +48,7 @@
 }
 
 .scrollbar-hide::-webkit-scrollbar {
-  display: none; /* Oculta la barra de scroll en navegadores WebKit */
+  display: none;
 }
 
 
@@ -65,14 +65,14 @@
 @media (min-width: 768px) {
   .menu {
     visibility: visible;
-    flex-direction: row; /* Cambiamos a disposición horizontal */
-    position: static; /* No fijo */
+    flex-direction: row; 
+    position: static;
     height: auto;
     padding: 0;
     width: auto; 
     gap: 20px;
-    transform: none; /* Sin animación */
-    transition: none; /* Desactiva la transición */
+    transform: none; 
+    transition: none; 
   }
   
 

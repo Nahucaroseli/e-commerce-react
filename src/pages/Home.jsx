@@ -14,6 +14,8 @@ function Home() {
 
     const products = useProducts(filter);
 
+
+    
     const handleClick = ()=>{
       const cart = document.querySelector("#cart");
       cart.classList.remove("activeCart");
