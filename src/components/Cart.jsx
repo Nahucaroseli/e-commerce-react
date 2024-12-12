@@ -20,14 +20,16 @@ function Cart() {
   useEffect(() => {
     const generatedHTML = products.map((product) => {
       return (
-        <div className="flex flex-row" key={product.id}>
-          <img className="w-40" src={product.image} alt="" />
-          <div className="flex flex-col ml-5 gap-y-4">
+        <div className="flex flex-col" key={product.id}>
+          <img id="product_cart_img" src={product.image} alt="" />
+          <div className="flex flex-col  gap-y-4">
             <h1>{product.title}</h1>
-            <h1 className='font-bold'>${product.price}</h1>
-            <h1>Cant: {product.quantity}</h1>
-            <button onClick={(e) =>handleClickAdd(e,product)} className='rounded-lg w-10 text-black bg-white hover:bg-gray-200 duration-300 hover:text-xl'>+</button>
-            <button onClick={(e) =>handleClickRemove(e,product)} className='rounded-lg w-10 text-black bg-white hover:bg-gray-200 duration-300 hover:text-xl'>-</button>
+            <div className='flex flex-row gap-x-4'>
+              <h1 className='font-bold'>${product.price}</h1>
+              <h1>Cant: {product.quantity}</h1>
+              <button onClick={(e) =>handleClickAdd(e,product)} className='rounded-lg w-10 text-black bg-white hover:bg-gray-400 duration-300'>+</button>
+              <button onClick={(e) =>handleClickRemove(e,product)} className='rounded-lg w-10 text-black bg-white hover:bg-gray-400 duration-300'>-</button>
+            </div>
           </div>
         </div>
       );

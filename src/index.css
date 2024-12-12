@@ -7,14 +7,13 @@
   flex-direction: column;
   justify-content: center;
   position: fixed;
-  height: 500px;
+  height: 700px;
   padding: 40px;
   width: 100%;
   gap: 60px;
   top: 7%;
-  left: -.1%;
+  right: -1000px; 
   background-color: black;
-  transform: translateY(-900px); 
   transition: .5s;
 }
 
@@ -23,7 +22,6 @@
   position: fixed;
   height: 43rem;
   padding: 40px;
-  width: 0;
   gap: 60px;
   top: 7%;
   background-color: black;
@@ -33,12 +31,12 @@
 
 .active {
   visibility: visible;
-  transform: translateY(0);
+  right: 0;
 }
 
 .activeCart{
   width: 450px;
-  right: 0;
+  right: 0%;
 }
 
 
@@ -55,6 +53,22 @@
   display: none;
 }
 
+#product_cart_img{
+  width: 100px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgb(182, 182, 182);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: black;
+}
 
 
 

@@ -52,6 +52,17 @@ return (
   <>
   <nav className="bg-black text-white fixed w-full z-10 border-b-0">
     <div className="container mx-auto flex justify-between items-center p-4">
+      <div className='flex flex-row md:hidden'>
+        <a
+          id="cart_button"
+          className="hover:text-blue-300 hover:cursor-pointer"
+          onClick={toggleCart}>
+
+          <i className="fas fa-shopping-cart text-xl"></i>
+
+        </a>
+          {totalitemsCount}
+        </div>
       <div className="text-2xl font-bold">
         <Link onClick={() =>setFilter(``)} to={`/`}>
           Compra Fácil
@@ -59,6 +70,7 @@ return (
       </div>
 
       <div id="menu" className={`menu ${isMenuActive ? 'active' : ''}`}>
+      <i onClick={toggleMenu} className="fa-solid fa-xmark absolute text-xl top-6 right-5 md:top-6 md:right-50 hover:cursor-pointer md:hidden"></i>
         <Link
           onClick={() =>setFilter(`men's clothing`)}
           to={`/men's clothing`}
@@ -88,26 +100,23 @@ return (
           JOYERIA
         </Link>
       </div>
-      <div className="flex flex-row justify-between md:justify-around md:gap-x-5 w-20">
-        <div className='flex flex-row'>
-        <a
-          id="cart_button"
-          className="hover:text-blue-300 hover:cursor-pointer"
-          onClick={toggleCart}>
+      <div className="flex flex-row justify-between md:w-20 gap-x-3">
+        <div className='flex flex-row hidden md:flex'>
+          <a
+            id="cart_button"
+            className="hover:text-blue-300 hover:cursor-pointer"
+            onClick={toggleCart}>
 
-          <i className="fas fa-shopping-cart text-xl"></i>
-
-        </a>
-          {totalitemsCount}
+            <i className="fas fa-shopping-cart text-xl"></i>
+          </a>
+            {totalitemsCount}
         </div>
 
         <Link to={"/login"} className='hover:text-blue-300 hover:cursor-pointer'>
-        <i className="fa-solid fa-user text-xl"></i>
+          <i className="fa-solid fa-user text-xl"></i>
         </Link>
-        <a
-          className="hover:text-blue-300 md:hidden hover:cursor-pointer"
-          onClick={toggleMenu}
-        >
+        <a className="hover:text-blue-300 md:hidden hover:cursor-pointer"
+          onClick={toggleMenu}>
           <i className="fa-sharp fa-solid fa-bars text-2xl"></i>
         </a>
       </div>
