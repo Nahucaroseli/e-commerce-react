@@ -14,7 +14,8 @@ const location = useLocation();
 const {products} = useContext(CartContext);
 const [totalitemsCount,setTotalItemsCount] = useState("");
 
-
+const usuarioGuardado = localStorage.getItem('user');
+const usuario = JSON.parse(usuarioGuardado);
 
 const toggleMenu = () => {
   setIsMenuActive(!isMenuActive);
@@ -65,7 +66,7 @@ return (
         </div>
       <div className="text-2xl font-bold">
         <Link onClick={() =>setFilter(``)} to={`/`}>
-          Compra Fácil
+          COMPRA FACIL
         </Link>
       </div>
 
@@ -112,9 +113,17 @@ return (
             {totalitemsCount}
         </div>
 
-        <Link to={"/login"} className='hover:text-blue-300 hover:cursor-pointer'>
-          <i className="fa-solid fa-user text-xl"></i>
-        </Link>
+        {!usuario &&
+          <Link to={"/login"} className='hover:text-blue-300 hover:cursor-pointer'>
+            <i className="fa-solid fa-user text-xl"></i>
+          </Link>
+        }
+        {usuario &&
+          <Link to={"/account"} className='hover:text-blue-300 hover:cursor-pointer'>
+            <i className="fa-solid fa-user text-xl"></i>
+          </Link>
+        }
+
         <a className="hover:text-blue-300 md:hidden hover:cursor-pointer"
           onClick={toggleMenu}>
           <i className="fa-sharp fa-solid fa-bars text-2xl"></i>

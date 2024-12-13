@@ -4,6 +4,7 @@ import Cart from '../components/Cart'
 import {useNavigate } from 'react-router';
 import { registerUser } from '../services/user';
 import { UserContext } from '../context/user.context';
+import Account from './Account';
 
 function Login() {
   const [username, setUserName] = useState("");
@@ -86,9 +87,6 @@ function Login() {
               </form>
             </div>
           </div>
-          }
-          {usuario &&
-          <h1 className='absolute top-20'>Logueado como {usuario.usuario}</h1>
           }
           
     </>
