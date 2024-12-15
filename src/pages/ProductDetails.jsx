@@ -25,7 +25,6 @@ function ProductDetails() {
 
   return (
     <>
- 
     <Cart></Cart>
     <Header/>
     {product && 

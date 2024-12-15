@@ -6,12 +6,12 @@ import { CartContext, CartContextWrapper } from '/src/context/cart.context.jsx';
 import { UserContextWrapper } from './context/user.context.jsx';
 
 createRoot(document.getElementById('root')).render(
-  <UserContextWrapper>
-    <CartContextWrapper>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </CartContextWrapper>
-  </UserContextWrapper>
+  <BrowserRouter>
+    <UserContextWrapper>
+      <CartContextWrapper>
+          <App />
+      </CartContextWrapper>
+    </UserContextWrapper>
+  </BrowserRouter>
 
 )

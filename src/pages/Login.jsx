@@ -3,8 +3,9 @@ import Header from '../components/Header'
 import Cart from '../components/Cart'
 import {useNavigate } from 'react-router';
 import { registerUser } from '../services/user';
-import { UserContext } from '../context/user.context';
 import Account from './Account';
+import { UserContext } from '/src/context/user.context.jsx';
+import toast from 'react-hot-toast'
 
 function Login() {
   const [username, setUserName] = useState("");
@@ -14,20 +15,21 @@ function Login() {
   const navigate = useNavigate();
 
 
-  const {registrarUsuario} = useContext(UserContext);
+  const {user,registrarUsuario} = useContext(UserContext);
 
-  const usuarioGuardado = localStorage.getItem('user');
-  const usuario = JSON.parse(usuarioGuardado);
 
   const handleRegister = async (username,email,password)=>{
+    toast('Iniciando Sesion...',{
+      duration: 5000,
+      position: 'top-right'
+    })
     try {
         const response = await registerUser({username,email,password});
-        console.log("Registro hecho");
-        console.log(response);
         return response;
     } catch (error) {
       console.log(error);
     }
+    
   }
 
   const submitRegister = async () => {
@@ -38,14 +40,12 @@ function Login() {
   
     try {
       const response = await handleRegister(username, email, password);
-      console.log(response);
       if (response) {
         const usuario = {
           usuario: username,
           correo: email,
           contraseña:password
         }
-        console.log(usuario);
         registrarUsuario(usuario);
         navigate("/");
       } else {
@@ -61,12 +61,14 @@ function Login() {
     <>
         <Header/>
         <Cart/>
-          {!usuario &&
-          <div className='container flex flex-col pt-32 gap-y-10 lg:flex-row gap-x-16 justify-center overflow-hidden'>
+          {!user &&
+          <div className='container flex flex-col pt-32 w-screen gap-y-10 lg:flex-row gap-x-16 justify-right overflow-hidden'>
             <div className='flex flex-col ml-5 gap-y-10 w-full'>
               <h1 className='text-xl font-bold'>Iniciar Sesion</h1>
               <form className='flex flex-col p-10 w-11/12 h-100 gap-y-3 rounded-xl border-2 border-black md:w-full'>
                   <h1>Nombre de Usuario</h1>
+                  <input className='border border-black p-2' type="text"/>
+                  <h1>Correo electronico</h1>
                   <input className='border border-black p-2' type="text"/>
                   <h1>Contraseña</h1>
                   <input className='border border-black p-2' type="password"/><button className=' mt-10 border-2 border-black p-2 rounded-lg w-60 text-white bg-black hover:bg-white hover:text-black ease-out duration-300 '>Acceder</button>
