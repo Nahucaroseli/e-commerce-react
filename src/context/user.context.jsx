@@ -18,9 +18,15 @@ function UserContextWrapper(props) {
 
     }
 
+    const loguearUsuario = (usuario)=>{
+      localStorage.setItem('user',JSON.stringify(usuario));
+      setUser(usuario);
+    }
+
     const logoutUsuario = () =>{
       setUser(null);
       localStorage.removeItem("user");
+      localStorage.removeItem("token");
       navigate("/login");
     }
 
@@ -32,7 +38,7 @@ function UserContextWrapper(props) {
     }, []);
 
   return (
-    <UserContext.Provider value={{user,registrarUsuario,logoutUsuario}}>
+    <UserContext.Provider value={{user,registrarUsuario,logoutUsuario,loguearUsuario}}>
         {props.children}
     </UserContext.Provider>
   )

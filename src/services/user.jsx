@@ -23,5 +23,28 @@ export const registerUser = async ({username,email,password}) =>{
      }
 }
 
+export const loginUser = async({username,email,password}) =>{
+    try {
+        const response = await fetch(apiUrl+"/login",{
+            method:'POST',
+            headers:{
+                'Content-Type':'application/json',
+            },
+            body: JSON.stringify({
+                username: username,
+                email: email,
+                password: password
+            }),
+        });
+        if(response.ok){
+            const data = await response.json();
+            return data;
+        }
+
+     } catch (error) {
+        console.log(error);
+     }
+}
+
 
 export default registerUser;

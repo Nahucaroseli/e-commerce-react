@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import Header from '../components/Header'
 import useProduct from '../hooks/useProduct'
-import { useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import Cart from '../components/Cart';
 import { CartContext, CartContextWrapper } from '/src/context/cart.context.jsx';
 import toast from 'react-hot-toast'
@@ -15,12 +15,19 @@ function ProductDetails() {
 
   const {addToCart} = useContext(CartContext);
 
+  const navigate = useNavigate();
+
   const handleClick = ()=>{
-    addToCart(product,);
-    toast('Agregado al Carrito!',{
-      duration: 2000,
-      position: 'top-right'
-    })
+    const token = localStorage.getItem("token");
+    if(token){
+      addToCart(product,);
+      toast('Agregado al Carrito!',{
+        duration: 2000,
+        position: 'top-right'
+      })
+    }else{
+      navigate("/login");
+    }
   }
 
   return (
