@@ -18,8 +18,8 @@ function ProductDetails() {
   const navigate = useNavigate();
 
   const handleClick = ()=>{
-    const token = localStorage.getItem("token");
-    if(token){
+    const user = localStorage.getItem("user");
+    if(user){
       addToCart(product,);
       toast('Agregado al Carrito!',{
         duration: 2000,
